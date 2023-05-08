@@ -1,3 +1,7 @@
+map.eachLayer(function (layer) {
+    map.removeLayer(layer);
+});
+
 var map = L.map('map').setView([58.3781, 26.7295], 13);
 
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
