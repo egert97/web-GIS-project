@@ -9,9 +9,8 @@ async function addGeoJson(url) {
 }
 // prepare spatial data for Leaflet heat
 function heatDataConvert(feature) {
- return [
- feature.geometry.coordinates[1],
- feature.geometry.coordinates[0],
- feature.properties.area,
- ]
+ const lat = feature.geometry.coordinates[1];
+ const lon = feature.geometry.coordinates[0];
+ const value = feature.properties.cell_tower_count;
+ return [lat, lon, value];
 }
