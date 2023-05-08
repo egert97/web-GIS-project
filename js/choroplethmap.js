@@ -1,3 +1,6 @@
+// create a new feature group
+const featureGroup = L.featureGroup().addTo(map);
+
 addGeoJson('geojson/tartu_city_districts_edu.geojson')
 // add geoJSON layer
 async function addGeoJson(url) {
