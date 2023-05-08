@@ -4,6 +4,9 @@
   <meta charset="utf-8" />
   <title>Heatmap</title>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/leaflet.heat@0.2.0/dist/leaflet-heat.min.js"></script>
+  <script src="js/heatmap.js"></script>
   <style>
     #map {
       height: 500px;
@@ -23,9 +26,33 @@
   <h2>Our first page title</h2>
   <p>The first paragraph of our first page</p>
   <p>The second paragraph of our first page</p>
-  <div id="map" style="height:400px;width:300px"></div>
-  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-  <script src="js/heatmap.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/leaflet.heat@0.2.0/dist/leaflet-heat.min.js"></script>
+  <div id="map" style="height:500px;width:1000px"></div>
+  <script>
+    // create a Leaflet map object and set its view to a specific location and zoom level
+    var map = L.map('map').setView([37.8, -96], 4);
+
+    // add the OpenStreetMap tile layer to the map object
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors',
+      maxZoom: 18,
+    }).addTo(map);
+
+    // define an array of data points for the heatmap
+    var data = [
+      [37.782, -122.447],
+      [37.782, -122.445],
+      [37.782, -122.443],
+      [37.782, -122.441],
+      [37.782, -122.439],
+      [37.782, -122.437],
+      [37.782, -122.435],
+      [37.785, -122.447],
+      [37.785, -122.445],
+      // ...
+    ];
+
+    // create a heatmap layer using the Leaflet.heat plugin
+    var heatmapLayer = L.heatLayer(data, { radius: 25 }).addTo(map);
+  </script>
  </body>
- </html>
+</html>
