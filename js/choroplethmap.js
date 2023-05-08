@@ -1,5 +1,5 @@
 // create a new feature group
-const featureGroup = L.featureGroup().addTo(map);
+const featureGroup = L.featureGroup();
 
 async function addGeoJson(url) {
  const response = await fetch(url)
@@ -19,3 +19,6 @@ async function addGeoJson(url) {
    },
  }).addTo(featureGroup)
 }
+
+addGeoJson('geojson/tartu_city_districts_edu.geojson');
+featureGroup.addTo(map);
