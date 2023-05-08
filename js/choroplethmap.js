@@ -1,24 +1,41 @@
-// create a new feature group
-const featureGroup = L.featureGroup().addTo(map);
-
-// add geoJSON layer
-async function addGeoJson(url, map) {
- const response = await fetch(url)
- const data = await response.json()
- L.choropleth(data, {
-   valueProperty: 'OBJECTID',
-   scale: ['#ffffff', '#ff9900'],
-   steps: 5,
-   mode: 'q', // q for quantile, e for equidistant
-   style: {
-     color: '#fff',
-     weight: 2,
-     fillOpacity: 0.8,
-   },
-   onEachFeature: function (feature, layer) {
-     layer.bindPopup('Value: ' + feature.properties.OBJECTID)
-   },
- }).addTo(featureGroup)
-}
-
-addGeoJson('geojson/tartu_city_districts_edu.geojson', map);
+// add default map settings
+function defaultMapSettings() {
+    map.setView([58.3781, 26.7299], 12)
+  }
+  
+  // create a new map instance
+  const map = L.map('map').setView([58.3781, 26.7299], 12)
+  
+  // add raster tile layer from OpenStreetMap
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',
+    maxZoom: 18,
+  }).addTo(map)
+  
+  // create a new feature group
+  const featureGroup = L.featureGroup().addTo(map)
+  
+  // add geoJSON layer
+  async function addGeoJson(url) {
+    const response = await fetch(url)
+    const data = await response.json()
+    L.choropleth(data, {
+      valueProperty: 'Towers',
+      scale: ['#ffffb2', '#fecc5c', '#fd8d3c', '#f03b20', '#bd0026'],
+      steps: 5,
+      mode: 'q', // q for quantile, e for equidistant
+      style: {
+        color: '#fff',
+        weight: 2,
+        fillOpacity: 0.8,
+      },
+      onEachFeature: function (feature, layer) {
+        layer.bindPopup('District: ' + feature.properties.Name + '<br>' +
+                        'Towers: ' + feature.properties.Towers)
+      },
+    }).addTo(featureGroup)
+  }
+  
+  // add Tartu city districts geoJSON data
+  addGeoJson('geojson/tartu_city_districts_edu.geojson')
+  
