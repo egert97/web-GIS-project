@@ -10,7 +10,7 @@ function heatDataConvert(feature) {
   ];
 }
 
-// default map settings
+// Default map settings
 function defaultMapSettings() {
   map.setView([58.3781, 26.7299], 12);
 }
