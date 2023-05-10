@@ -1,6 +1,12 @@
 // Create a new map instance
 const map = L.map('map').setView([58.3781, 26.7299], 12);
 
+// add raster tile layer from OpenStreetMap
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',
+  maxZoom: 18,
+}).addTo(map);
+
 // Function to convert feature data for Leaflet heat
 function heatDataConvert(feature) {
   return [
