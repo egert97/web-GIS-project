@@ -1,8 +1,3 @@
-// add default map settings
-function defaultMapSettings() {
-  map.setView([58.3781, 26.7299], 12);
-}
-
 // create a new map instance
 const map = L.map('map').setView([58.3781, 26.7299], 12);
 
