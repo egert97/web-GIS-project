@@ -1,7 +1,7 @@
 // Create a new map instance
 const map = L.map('map').setView([58.3781, 26.7299], 12);
 
-// add raster tile layer from OpenStreetMap
+// Add raster tile layer from OpenStreetMap
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
   attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',
   maxZoom: 18,
@@ -24,9 +24,6 @@ function defaultMapSettings() {
 // Call defaultMapSettings() to set up the map
 defaultMapSettings();
 
-// Add GeoJSON layer with heatmap
-addGeoJson('geojson/tartu_city_celltowers_edu.geojson');
-
 // Function to fetch and add GeoJSON layer
 async function addGeoJson(url) {
   const response = await fetch(url);
@@ -35,3 +32,6 @@ async function addGeoJson(url) {
   const heatMap = L.heatLayer(heatData, { radius: 10 });
   heatMap.addTo(map);
 }
+
+// Add GeoJSON layer with heatmap
+addGeoJson('geojson/tartu_city_celltowers_edu.geojson');
