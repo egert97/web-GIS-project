@@ -7,8 +7,6 @@ function heatDataConvert(feature) {
     ];
   }
   
-  // Initialize the Leaflet map
-  const map = defaultMapSettings();
   
   // Add GeoJSON layer with heatmap
   addGeoJson('geojson/tartu_city_celltowers_edu.geojson');
