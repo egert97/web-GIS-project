@@ -16,6 +16,9 @@ async function addGeoJson(url) {
     ];
   }
   
+  // Initialize the Leaflet map
+  const map = L.map('map').setView([0, 0], 2);
+  
   // Call addGeoJson function with the desired GeoJSON file
   addGeoJson('geojson/tartu_city_celltowers_edu.geojson');
   
