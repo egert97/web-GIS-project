@@ -22,7 +22,7 @@ function heatDataConvert(feature) {
     heatMap.addTo(map);
   }
   
-  // default map settings
+// default map settings
 function defaultMapSettings() {
-  map.setView([[58.3781, 26.7299], 12)
+  map.setView([58.3781, 26.7299], 12)
  }
