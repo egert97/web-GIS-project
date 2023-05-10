@@ -36,5 +36,5 @@ addGeoJson('geojson/tartu_city_districts_edu.geojson');
 
 // default map settings
 function defaultMapSettings() {
-  map.setView([58.373523, 26.716045], 12)
+  map.setView([58.3781, 26.7299], 12)
  }

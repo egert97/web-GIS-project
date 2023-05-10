@@ -1,3 +1,6 @@
+// create a new map instance
+const map = L.map('map').setView([58.3781, 26.7299], 12);
+
 // Function to convert feature data for Leaflet heat
 function heatDataConvert(feature) {
     return [
@@ -6,7 +9,6 @@ function heatDataConvert(feature) {
       feature.properties.area
     ];
   }
-  
   
   // Add GeoJSON layer with heatmap
   addGeoJson('geojson/tartu_city_celltowers_edu.geojson');
@@ -22,5 +24,5 @@ function heatDataConvert(feature) {
   
   // default map settings
 function defaultMapSettings() {
-  map.setView([58.373523, 26.716045], 12)
+  map.setView([[58.3781, 26.7299], 12)
  }
