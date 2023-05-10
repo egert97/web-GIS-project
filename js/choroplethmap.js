@@ -37,4 +37,4 @@ async function addGeoJson(url) {
 }
 
 // add Tartu city districts geoJSON data
-addGeoJson('geojson/tartu_city_districts_edu.geojson');
+addGeoJson('geojson/tartu_city_districts_edu.geojson')
